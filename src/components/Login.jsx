@@ -26,9 +26,9 @@ const Login = () => {
       const handleSubmit = (e) =>{
         e.preventDefault();
         Swal.fire('Se ha registrado correctamente ✅');
-        navigate('/');
+        navigate('/access');
       }
-
+      
 
   return (
     <>

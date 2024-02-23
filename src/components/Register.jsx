@@ -12,11 +12,24 @@ const Register = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-  
-    if (!email || !password) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const minLength = 8;
+
+    if (!name || !email || !password) {
       Swal.fire('Por favor, completa todos los campos');
       return;
     }
+
+    if (!emailRegex.test(email)) {
+      Swal.fire('Por favor, ingresa un correo electrónico válido');
+      return;
+    }
+
+    if (password.length < minLength) {
+      Swal.fire(`La contraseña debe tener al menos ${minLength} caracteres`);
+      return;
+    }
+
     
     Swal.fire(`Bienvenido a EcoPop, ${name}`);
     navigate('/'); 
